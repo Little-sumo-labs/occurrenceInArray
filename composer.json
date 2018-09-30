@@ -1,13 +1,13 @@
 {
-    "name": "Little-sumo-labs/leplusprochede",
-    "description": "Trouver la valeur la plus proche d’une autre, en PHP",
+    "name": "Little-sumo-labs/occurrenceInArray",
+    "description": "Calcule le nombre d'occurrence d'une valeur donné en paramètre",
     "type": "library",
     "license": "MIT",
     "authors": [
         {
             "name": "Guillaume RICHARD",
             "email": "contact@guillaume-richard.fr",
-            "homepage": "https://guillaume-richard.fr/",
+            "homepage": "https://jf-blog.fr/",
             "role": "Developer"
         }
     ],

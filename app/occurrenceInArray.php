@@ -11,7 +11,9 @@ namespace App;
  */
 class occurrenceInArray {
 
-
+    /**
+     * @var int
+     */
     private $nbOccurrence = 0;
 
     /**
@@ -30,31 +32,53 @@ class occurrenceInArray {
      * @return int
      */
     public function findAllOccurrenceOf(int $occurrence): int {
-        $NbLigneArray = count($this->tab);
-
-        foreach ($this->tab as $key => $ligne) {
-            $NbColonne  = count($ligne)-1;
-
-            // prendre les chiffres de la ligne 2 par 2
-            for ($i = 0; $i < $NbColonne; $i++) {
-                $occurrenceInTab = intval($this->tab[$key][$i].$this->tab[$key][$i+1]);
-
-                // comptage en horizontal
-                if ($occurrenceInTab === $occurrence) {
-                    $this->nbOccurrence++;
-                }
-
-                // comptage en vertical
-                if ($key+1 < $NbColonne) {
-                    $occurrenceInTab = intval($this->tab[$key][$i].$this->tab[$key+1][$i]);
+        foreach ($this->tab as $keyLigne => $ligne) {
+            // comptage en horizontal : 53
+            foreach ($ligne as $keyColonne => $valueColonne) {
+                if (($keyColonne+1) !== $this->nbColonne) {
+                    $occurrenceInTab = intval($this->tab[$keyLigne][$keyColonne].$this->tab[$keyLigne][$keyColonne+1]);
 
                     if ($occurrenceInTab === $occurrence) {
                         $this->nbOccurrence++;
                     }
                 }
+            }
 
-                // comptage en diagonale
+            // comptage en vertical : 46
+            foreach ($ligne as $keyColonne => $v) {
+                if ($keyLigne+1 < ($this->nbColonne-1)) {
+                    $occurrenceInTab = intval($this->tab[$keyLigne][$keyColonne].$this->tab[$keyLigne+1][$keyColonne]);
 
+                    if ($occurrenceInTab === $occurrence) {
+                        $this->nbOccurrence++;
+                    }
+                }
+            }
+
+            // comptage en diagonale (partie 1) : 41
+            foreach ($ligne as $keyColonne => $v) {
+                if (
+                    ($keyColonne+1) !== $this->nbColonne
+                    && $keyLigne+1 < ($this->nbColonne-1)
+                ) {
+                    $occurrenceInTab = intval($this->tab[$keyLigne][$keyColonne].$this->tab[$keyLigne+1][$keyColonne+1]);
+
+                    if ($occurrenceInTab === $occurrence) {
+                        $this->nbOccurrence++;
+                    }
+                }
+            }
+
+            // comptage en diagonale (partie 2) : 44 ?
+            // ne pas prendre dans ma boucle : la dernière colonne et la première ligne
+            foreach ($ligne as $keyColonne => $v) {
+                if (($keyColonne+1) !== $this->nbColonne&& $keyLigne > 0) {
+                    $occurrenceInTab = intval($this->tab[$keyLigne][$keyColonne].$this->tab[$keyLigne-1][$keyColonne+1]);
+
+                    if ($occurrenceInTab === $occurrence) {
+                        $this->nbOccurrence++;
+                    }
+                }
             }
         }
 
@@ -65,7 +89,7 @@ class occurrenceInArray {
      * @return array
      * @throws \Exception
      */
-    public function getArraySize(): array {
+    private function getArraySize(): array {
         $colonneTemp = [];
         $nombreDeLigne = count($this->tab);
 
