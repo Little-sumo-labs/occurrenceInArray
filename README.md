@@ -9,15 +9,11 @@ l'énigme de base se trouve sur Linkedin, à l'url suivante [Combien y-a-t-il de
 * Ce nombre est obligatoirement une fusion de deux clés de ce tableau, clés étant côte-à-côte
 
 ## How to Use it
-L'essemble du script est, en lui-même, fonctionnel.
-
-J'ai intégré plusieurs concepts avancé & connu de PHP dans cette exercice :
-* Une classe PHP, avec le principe d'orienté objet
-* Composer, et son principe d'autoloading.
-* ...
-
-## Développements futurs
-* ...
+Pour le bon fonctionnement du script, il faut le cloner, puis faire un :
+```bash
+composer update
+```
+Le script n'a pas besoin de plus d'étape pour être fonctionnel.
 
 ## Documentation & Useful links
 * [Combien y-a-t-il de fois le nombre 88](https://www.linkedin.com/feed/update/urn:li:activity:6451381733127393281)

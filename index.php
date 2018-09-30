@@ -6,7 +6,7 @@ error_reporting(E_ALL); // Afficher les erreurs et les avertissements
 // Insertion des classes PHP
 require 'vendor/autoload.php';
 
-use \App\occurrenceInArray as occurrence;
+use \App\occurrenceInArray as occurrenceIn;
 
 $tab = [
     [1, 5, 8, 8, 9, 6, 8, 5, 8, 8, 3, 6, 2, 9, 8, 5, 1],
@@ -27,9 +27,4 @@ $tab = [
     [8, 3, 5, 8, 8, 9, 8, 8, 5, 4, 8, 5, 8, 8, 8, 8, 8]
 ];
 
-$array = [1, 5, 8, 8, 9, 6, 8, 5, 8, 8, 3, 6, 2, 9, 8, 5, 1];
-
-$occ    = new occurrence();
-$info   = $occ->findAllOccurrence(88, $tab);
-
-echo $info;
+echo (new occurrenceIn($tab))->findAllOccurrenceOf(88);
