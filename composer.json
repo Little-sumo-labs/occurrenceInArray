@@ -1,0 +1,32 @@
+{
+    "name": "Little-sumo-labs/leplusprochede",
+    "description": "Trouver la valeur la plus proche d’une autre, en PHP",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Guillaume RICHARD",
+            "email": "contact@guillaume-richard.fr",
+            "homepage": "https://guillaume-richard.fr/",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "contact@guillaume-richard.fr",
+        "source": "https://github.com/Little-sumo-labs/occurrenceInArray",
+        "docs": "https://github.com/Little-sumo-labs/occurrenceInArray/blob/master/README.md",
+        "rss": "https://jf-blog.fr/feed"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "require": {},
+    "require-dev": {
+        "phpro/grumphp": "^0.14.2",
+        "phpunit/phpunit": "^7.3",
+        "jakub-onderka/php-parallel-lint": "^1.0",
+        "friendsofphp/php-cs-fixer": "^2.13"
+    }
+}
